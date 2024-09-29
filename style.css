@@ -75,7 +75,7 @@ body {
     top:40%
     
 }
-.ring{
+/* .ring{
     position: relative;
     width: 80px;
     height: 80px;
@@ -86,6 +86,27 @@ body {
     outline-width: 5px;
     outline-style: solid;
     transition: 0.5s;
+    box-shadow: 0 0 8px white, inset 0 0 8px white;
+    -webkit-animation: pulse 2s linear 1s infinite;
+} */
+
+.ring{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 0; 
+    left: 0;     
+    opacity:0.8;
+    border-radius: 50%;
+    outline: white;
+    outline-width: 5px;
+    outline-style: solid;
+    box-shadow: 0 0 8px white, inset 0 0 8px white;
+    -webkit-animation: pulse 2s linear 1s infinite;
+    /* transition: width 0.7s ease, height 0.7s ease, opacity 0.3s ease; */
+    /* transition: transform 0.7s cubic-bezier(0.25, 0, 0.75, 1); */
+    transition:0.5s cubic-bezier(0.44,-0.33, 0.71, 0.99)all;
+    cursor: pointer;
 }
 #katana:hover,
 #spear:hover,
@@ -95,6 +116,9 @@ body {
         height: 110px;
         top: -15px; 
         left: -15px; 
+        transition: 1s;
+        -webkit-animation: none;
+        opacity: 1;
     }
     #kimg{
         transform: rotate(135deg);
@@ -139,4 +163,28 @@ body {
     height: 80px;
     width: 80px;
     transition: 0.5s;
+}
+/* ////Animtation */
+@-webkit-keyframes pulse {
+    0% { 
+        box-shadow:0 0 8px white, inset 0 0 8px white; 
+        opacity: 0.8;
+    }
+    50% {
+        box-shadow:0 0 24px white, inset 0 0 24px white; 
+        opacity: 1;
+    }
+    100% {
+        box-shadow:0 0 8px white, inset 0 0 8px white; 
+        opacity: 0.8;
+    }
+  }
+
+  @-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(135deg);
+  }
 }
