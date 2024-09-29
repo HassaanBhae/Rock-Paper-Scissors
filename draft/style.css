@@ -30,16 +30,19 @@ body {
     color: black;
 }
 #samurai{
-    position: fixed;
-    bottom: 0;
-    left: 25%;
+    position: absolute;
+    /* bottom: 0; */
+    left: 0;
     /* transform: translateX(-50%); */
     /* height: 300px; */
     /* scale: 2; */
-    height:430px;
+    height:100vh;
+    width: 100vw;
 }
 #samurai img{
-    height:430px;
+    position: absolute;
+    height:350px;
+    bottom: 0;
     
 }
 
