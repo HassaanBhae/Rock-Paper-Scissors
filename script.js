@@ -104,15 +104,51 @@
 // });
 
 const weapons = document.querySelectorAll(".weapon");
+const rings = document.querySelectorAll(".ring");
+const choice = document.getElementById("choice");
+const menu = document.getElementById("menu");
+const weaponHolder = document.getElementById("weapon-holder");
+
+
+console.log(weapons);
+console.log(rings);
+console.log(choice);
+console.log(menu);
+console.log(weaponHolder);
+
 
 weapons.forEach(weapon => {
     weapon.addEventListener("click", () => {
-        const circle = weapon.firstElementChild; // This assumes the circle is the immediate next sibling
+        const circle = weapon.children[1]; // Get the second child
+        const head = weapon.children[0];
         circle.style.transform = "scale(0)"; // Shrinks to center
         circle.style.opacity = "0"; // Optional for fade effect
+        head.style.transform= "scale(0)";
+        head.style.opacity = "0"; // Optional for fade effect
+        choice.textContent = weapon.children[0].textContent;
+        // choice.textContent = choice.textContent.toUpperCase();
+        setTimeout(() => {
+            circle.style.transform = "scale(30)"; // Shrinks to center
+            circle.style.opacity = "0.6"; // Optional for fade effect
+            menu.style.transition = "1s";
+            menu.style.opacity = 0;
+            weaponHolder.style.transition = "1s";
+            weaponHolder.style.opacity = 0;
+            choice.style.transform = "scale(15)"; // Grows
+            choice.style.opacity = "0.8"; // Optional for fade effect
+            choice.style.transition = "transform 0.5s ease-in-out";
+            // circle.style.display = "none"; // Remove from layout after animation
+
+        }, 500); // Match this duration with the CSS transition time
 
         setTimeout(() => {
-            circle.style.display = "none"; // Remove from layout after animation
-        }, 700); // Match this duration with the CSS transition time
+            splashScreen(); // Call your desired function here
+        }, 1500); // Function will execute after 1500 ms
     });
 });
+
+// Example function to be called
+function splashScreen() {
+    console.log("Function called after 1500 ms");
+    // Add your additional logic here
+}

@@ -20,6 +20,7 @@ body {
     width: 100%;
     height: 100%;
     justify-content: center;
+    opacity: 1;
 }
 #heading{
     position: absolute;
@@ -65,15 +66,15 @@ body {
 #weapon-holder{
     position: absolute;
     height: 400px;
-    width: 200px;
+    width: 100px;
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
     /* gap: 20px; */
     justify-content: space-around;
     left:60%;
-    top:40%
-    
+    top:40%;
+    opacity: 1;
 }
 /* .ring{
     position: relative;
@@ -103,8 +104,7 @@ body {
     outline-style: solid;
     box-shadow: 0 0 8px white, inset 0 0 8px white;
     -webkit-animation: pulse 2s linear 1s infinite;
-    /* transition: width 0.7s ease, height 0.7s ease, opacity 0.3s ease; */
-    /* transition: transform 0.7s cubic-bezier(0.25, 0, 0.75, 1); */
+    transition: transform 0.7s cubic-bezier(0.25, 0, 0.75, 1);
     transition:0.5s cubic-bezier(0.44,-0.33, 0.71, 0.99)all;
     cursor: pointer;
 }
@@ -112,11 +112,12 @@ body {
 #spear:hover,
 #shield:hover {
     .ring{
-        width: 110px;
+        /* width: 110px;
         height: 110px;
         top: -15px; 
-        left: -15px; 
-        transition: 1s;
+        left: -15px;  */
+        /* transition: 1s; */
+        transform: scale(1.3);
         -webkit-animation: none;
         opacity: 1;
     }
@@ -130,8 +131,21 @@ body {
         transform: rotate(180deg);
     }
 }
+#katana:hover .head {
+    opacity: 0.8; 
+    visibility: visible; 
+}
+#spear:hover .head {
+    opacity: 0.8; 
+    visibility: visible; 
+}
+#shield:hover .head {
+    opacity: 0.8; 
+    visibility: visible; 
+}
 #katana{
     position: relative;
+    left: 10px;
 }
 #spear{
     position: relative;
@@ -139,6 +153,7 @@ body {
 }
 #shield{
     position: relative;
+    left: 10px;
 }
 #katana img{
     position: absolute;
@@ -187,4 +202,40 @@ body {
     100% {
         transform: rotate(135deg);
   }
+}
+.head{
+    position: absolute;
+    color: white;
+    text-shadow: 0px 0px 30px white,0px 0px 30px white,0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px #553300;
+    transform: rotate(270deg);
+    opacity: 0; 
+    visibility: hidden; 
+    transition: 0.5s ease-in-out;
+    font-size: 24px;
+}
+#katana-head{
+    right: 95%;
+}
+#spear-head{
+    right: 105%;
+    top:10%
+}
+#shield-head{
+    top:10%;
+    right: 100%;
+}
+#choice{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* background-color: red; */
+    color: black;
+    text-align: center;
+    /* justify-content: center; */
+    align-content: center;
+    transform: scale(0);
+    opacity: 0;
+    z-index: 1000;
+    font-family: "ninja";
 }
