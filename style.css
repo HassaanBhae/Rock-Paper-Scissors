@@ -239,3 +239,8 @@ body {
     z-index: 1000;
     font-family: "ninja";
 }
+#main{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}

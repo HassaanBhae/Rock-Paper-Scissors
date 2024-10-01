@@ -107,6 +107,7 @@ const weapons = document.querySelectorAll(".weapon");
 const rings = document.querySelectorAll(".ring");
 const choice = document.getElementById("choice");
 const menu = document.getElementById("menu");
+const main = document.getElementById("main");
 const weaponHolder = document.getElementById("weapon-holder");
 
 
@@ -115,7 +116,19 @@ console.log(rings);
 console.log(choice);
 console.log(menu);
 console.log(weaponHolder);
-
+function splashScreen(){
+    console.log("Splash Screen Called!")
+    const img = document.createElement("img");
+    img.src = "../images/doorgif-close-gif.gif";
+    img.style.height = "100vh";
+    img.style.width = "100vw";
+    img.style.transform = "scale(1.3)"; // Grows
+    main.appendChild(img);
+    setTimeout(() => {
+        main.removeChild(img);
+        console.log("child removed")
+    }, 3500); 
+}
 
 weapons.forEach(weapon => {
     weapon.addEventListener("click", () => {
@@ -142,13 +155,9 @@ weapons.forEach(weapon => {
         }, 500); // Match this duration with the CSS transition time
 
         setTimeout(() => {
+            console.log("Calling Splash Screen!");
             splashScreen(); // Call your desired function here
         }, 1500); // Function will execute after 1500 ms
     });
 });
 
-// Example function to be called
-function splashScreen() {
-    console.log("Function called after 1500 ms");
-    // Add your additional logic here
-}
