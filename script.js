@@ -119,7 +119,7 @@ console.log(weaponHolder);
 function splashScreen(){
     console.log("Splash Screen Called!")
     const img = document.createElement("img");
-    img.src = "../images/doorgif-close-gif.gif";
+    img.src = "./images/doorgif-close-gif.gif";
     img.style.height = "100vh";
     img.style.width = "100vw";
     img.style.transform = "scale(1.3)"; // Grows
