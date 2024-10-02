@@ -110,22 +110,19 @@ const menu = document.getElementById("menu");
 const main = document.getElementById("main");
 const weaponHolder = document.getElementById("weapon-holder");
 
+//Load The Gif Before Hand
+const img = new Image();
+img.src = "./images/doorgif-close-gif.gif";
+img.style.height = "100vh";
+img.style.width = "100vw";
+img.style.transform = "scale(1.3)"; 
 
-console.log(weapons);
-console.log(rings);
-console.log(choice);
-console.log(menu);
-console.log(weaponHolder);
+// Log when the GIF has fully loaded
+img.onload = () => {
+    console.log("GIF has been fully preloaded!");
+};
 
-
-        //Load The Gif Before Hand
-        const img = new Image();
-        img.src = "./images/doorgif-close-gif.gif";
-        img.style.height = "100vh";
-        img.style.width = "100vw";
-        img.style.transform = "scale(1.3)"; // Grows
-
-
+//Call The Splash Screen
 function splashScreen(img){
     console.log("Splash Screen Called!")
     main.appendChild(img);
@@ -135,6 +132,7 @@ function splashScreen(img){
     }, 3500); 
 }
 
+//Add Listener For Each Weapon
 weapons.forEach(weapon => {
     weapon.addEventListener("click", () => {
         //Ring
@@ -157,9 +155,7 @@ weapons.forEach(weapon => {
             choice.style.opacity = "0.8"; // Optional for fade effect
             choice.style.transition = "transform 0.5s ease-in-out";
             // circle.style.display = "none"; // Remove from layout after animation
-
         }, 500); // Match this duration with the CSS transition time
-
         setTimeout(() => {
             console.log("Calling Splash Screen!");
             splashScreen(img); // Call your desired function here
