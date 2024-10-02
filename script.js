@@ -116,13 +116,8 @@ console.log(rings);
 console.log(choice);
 console.log(menu);
 console.log(weaponHolder);
-function splashScreen(){
+function splashScreen(img){
     console.log("Splash Screen Called!")
-    const img = document.createElement("img");
-    img.src = "./images/doorgif-close-gif.gif";
-    img.style.height = "100vh";
-    img.style.width = "100vw";
-    img.style.transform = "scale(1.3)"; // Grows
     main.appendChild(img);
     setTimeout(() => {
         main.removeChild(img);
@@ -132,6 +127,13 @@ function splashScreen(){
 
 weapons.forEach(weapon => {
     weapon.addEventListener("click", () => {
+        //Load The Gif Before Hand
+        const img = document.createElement("img");
+        img.src = "./images/doorgif-close-gif.gif";
+        img.style.height = "100vh";
+        img.style.width = "100vw";
+        img.style.transform = "scale(1.3)"; // Grows
+        //Ring
         const circle = weapon.children[1]; // Get the second child
         const head = weapon.children[0];
         circle.style.transform = "scale(0)"; // Shrinks to center
@@ -156,7 +158,7 @@ weapons.forEach(weapon => {
 
         setTimeout(() => {
             console.log("Calling Splash Screen!");
-            splashScreen(); // Call your desired function here
+            splashScreen(img); // Call your desired function here
         }, 1500); // Function will execute after 1500 ms
     });
 });
