@@ -119,13 +119,13 @@ console.log(weaponHolder);
 
 
         //Load The Gif Before Hand
-        const img = document.createElement("img");
+        const img = new Image();
         img.src = "./images/doorgif-close-gif.gif";
         img.style.height = "100vh";
         img.style.width = "100vw";
         img.style.transform = "scale(1.3)"; // Grows
 
-        
+
 function splashScreen(img){
     console.log("Splash Screen Called!")
     main.appendChild(img);
