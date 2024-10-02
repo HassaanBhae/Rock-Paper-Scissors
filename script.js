@@ -116,6 +116,16 @@ console.log(rings);
 console.log(choice);
 console.log(menu);
 console.log(weaponHolder);
+
+
+        //Load The Gif Before Hand
+        const img = document.createElement("img");
+        img.src = "./images/doorgif-close-gif.gif";
+        img.style.height = "100vh";
+        img.style.width = "100vw";
+        img.style.transform = "scale(1.3)"; // Grows
+
+        
 function splashScreen(img){
     console.log("Splash Screen Called!")
     main.appendChild(img);
@@ -127,12 +137,6 @@ function splashScreen(img){
 
 weapons.forEach(weapon => {
     weapon.addEventListener("click", () => {
-        //Load The Gif Before Hand
-        const img = document.createElement("img");
-        img.src = "./images/doorgif-close-gif.gif";
-        img.style.height = "100vh";
-        img.style.width = "100vw";
-        img.style.transform = "scale(1.3)"; // Grows
         //Ring
         const circle = weapon.children[1]; // Get the second child
         const head = weapon.children[0];
