@@ -95,18 +95,64 @@ for (let i = 1; i <= 57; i++) {
     const img = document.createElement('img');
     img.src = `./images/png-bg/frame-${i}.png`;
     img.alt = `Image ${i}`;
+    img.style.zIndex = "100";
     //Scaling With respect to Width of the Screen
-    // if(screen.availWidth){
-        //max 
+    // img.style.transform = "scale(1.3)";
+    const width = screen.width;
+    if (width >= 1400) {
         img.style.transform = "scale(1.3)";
-        img.style.zIndex = "100";
-        //less tha 1100
-        // img.style.transform = "scale(1.4)";
-        //less tha 1000
-        // img.style.transform = "scale(1.5)";
-
-    // }
-    slideshow.appendChild(img);
+        console.log("Scaled at 1.3 for width >= 1400");
+    } 
+    else if (width >= 1300) {
+        img.style.transform = "scale(1.4)";
+        console.log("Scaled at 1.4 for width >= 1300");
+    } 
+    else if (width >= 1200) {
+        img.style.transform = "scale(1.5)";
+        console.log("Scaled at 1.5 for width >= 1200");
+    } 
+    else if (width >= 1100) {
+        img.style.transform = "scale(1.6)";
+        console.log("Scaled at 1.6 for width >= 1100");
+    } 
+    else if (width >= 1000) {
+        img.style.transform = "scale(1.7)";
+        console.log("Scaled at 1.7 for width >= 1000");
+    } 
+    else if (width >= 900) {
+        img.style.transform = "scale(1.8)";
+        console.log("Scaled at 1.8 for width >= 900");
+    } 
+    else if (width >= 800) {
+        img.style.transform = "scale(1.9)";
+        console.log("Scaled at 1.9 for width >= 800");
+    } 
+    else if (width >= 700) {
+        img.style.transform = "scale(2)";
+        console.log("Scaled at 2.0 for width >= 700");
+    } 
+    else if (width >= 600) {
+        img.style.transform = "scale(2.1)";
+        console.log("Scaled at 2.1 for width >= 600");
+    } 
+    else if (width >= 500) {
+        img.style.transform = "scale(2.2)";
+        console.log("Scaled at 2.2 for width >= 500");
+    } 
+    else if (width >= 400) {
+        img.style.transform = "scale(2.3)";
+        console.log("Scaled at 2.3 for width >= 400");
+    } 
+    else if (width >= 300) {
+        img.style.transform = "scale(2.4)";
+        console.log("Scaled at 2.4 for width >= 300");
+    } 
+    else {
+        img.style.transform = "scale(1.3)";
+        console.log("Scaled at 1.3 for width < 300");
+    }
+    
+    slideshow.append(img);
 }
 
 let currentIndex = 0; 
@@ -121,6 +167,7 @@ function showNextImage(intervalId) {
     images[currentIndex].classList.add('active'); 
     if(currentIndex === 56) {
             console.log("Finished Gif!",currentIndex);
+            // choice.style.opacity = "1";
             clearInterval(intervalId);
             return;
     }
@@ -132,7 +179,6 @@ function splashScreen(){
         leaf.style.zIndex = "1";
     });
     const intervalId = setInterval(() => showNextImage(intervalId), 30); 
-    console.log('Splash Screen Done!')
 }
 
 //Add Listener For Each Weapon
@@ -161,6 +207,7 @@ weapons.forEach(weapon => {
         setTimeout(() => {
             console.log("Calling Splash Screen!");
             splashScreen(); // Call your desired function here
+            console.log("Ui Elemonts Done! Starting Game!")
         }, 1500); // Function will execute after 1500 ms
     });
 });
