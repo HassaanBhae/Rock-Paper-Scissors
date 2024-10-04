@@ -79,57 +79,60 @@
 // let computerScore=0;
 // let humanScore=0;
 // plaground();
-// const button1 = document.querySelector("#katana");
-// const ring1 = document.querySelector(".ring");
-// button1.addEventListener("click", () =>{
-//     ring1.style.width = "0px";
-//     ring1.style.height = "0px";
-//     ring1.style.opacity = "0";
-// });
-// function ringless(){
-//   console.log("Ringless Called!");
-// }
-// const katana = document.querySelector("#katana");
 
-// const circle = document.querySelectorAll(".ring");
-
-
-// katana.addEventListener("click", () => {
-//     circle.style.transform = "scale(0)"; // Shrinks to center
-//     circle.style.opacity = "0"; // Optional for fade effect
-
-//     setTimeout(() => {
-//         circle.style.display = "none"; // Remove from layout after animation
-//     }, 700); // Match this duration with the CSS transition time
-// });
-
+////////////////////////////////////////////////////////////***********/////////////////////////////////////////////////////////////////////////////////
+//Ui Elemnts
 const weapons = document.querySelectorAll(".weapon");
 const rings = document.querySelectorAll(".ring");
 const choice = document.getElementById("choice");
 const menu = document.getElementById("menu");
-const main = document.getElementById("main");
+const leaves = document.querySelectorAll(".leaf");
+const slideshow = document.getElementById("slideshow");
 const weaponHolder = document.getElementById("weapon-holder");
 
-//Load The Gif Before Hand
-const img = new Image();
-img.src = "./images/doorgif-close-gif.gif";
-img.style.height = "100vh";
-img.style.width = "100vw";
-img.style.transform = "scale(1.3)"; 
+//Load The Images Before Hand
+for (let i = 1; i <= 57; i++) {
+    const img = document.createElement('img');
+    img.src = `./images/png-bg/frame-${i}.png`;
+    img.alt = `Image ${i}`;
+    //Scaling With respect to Width of the Screen
+    // if(screen.availWidth){
+        //max 
+        img.style.transform = "scale(1.3)";
+        img.style.zIndex = "100";
+        //less tha 1100
+        // img.style.transform = "scale(1.4)";
+        //less tha 1000
+        // img.style.transform = "scale(1.5)";
 
-// Log when the GIF has fully loaded
-img.onload = () => {
-    console.log("GIF has been fully preloaded!");
-};
+    // }
+    slideshow.appendChild(img);
+}
+
+let currentIndex = 0; 
+
+//Grab The loaded Images
+const images = document.querySelectorAll('.slideshow img'); 
+
+//TO Show images
+function showNextImage(intervalId) {
+    images[currentIndex].classList.remove('active'); 
+    currentIndex = (currentIndex + 1) % images.length; 
+    images[currentIndex].classList.add('active'); 
+    if(currentIndex === 56) {
+            console.log("Finished Gif!",currentIndex);
+            clearInterval(intervalId);
+            return;
+    }
+}
 
 //Call The Splash Screen
-function splashScreen(img){
-    console.log("Splash Screen Called!")
-    main.appendChild(img);
-    setTimeout(() => {
-        main.removeChild(img);
-        console.log("child removed")
-    }, 3500); 
+function splashScreen(){
+    leaves.forEach(leaf => {
+        leaf.style.zIndex = "1";
+    });
+    const intervalId = setInterval(() => showNextImage(intervalId), 30); 
+    console.log('Splash Screen Done!')
 }
 
 //Add Listener For Each Weapon
@@ -154,11 +157,10 @@ weapons.forEach(weapon => {
             choice.style.transform = "scale(15)"; // Grows
             choice.style.opacity = "0.8"; // Optional for fade effect
             choice.style.transition = "transform 0.5s ease-in-out";
-            // circle.style.display = "none"; // Remove from layout after animation
         }, 500); // Match this duration with the CSS transition time
         setTimeout(() => {
             console.log("Calling Splash Screen!");
-            splashScreen(img); // Call your desired function here
+            splashScreen(); // Call your desired function here
         }, 1500); // Function will execute after 1500 ms
     });
 });

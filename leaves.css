@@ -86,10 +86,6 @@
 #leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #f3a034, #f88d01); }
 #leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, rgb(153, 133, 0), #6d5001); }
 
-/* #leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #879900, #564300); }
-#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #5e9900, #b69a0d); }
-#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, rgb(153, 133, 0), #ba8a06); } */
-
 #leaves i:nth-of-type(n)    { opacity: 1;}
 #leaves i:nth-of-type(3n+1)  { opacity: 1;}
 #leaves i:nth-of-type(3n+2)  { opacity: 1;}
